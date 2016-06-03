@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>My Own Space</title>
+	<link rel="stylesheet" href="githubio.css" type="text/css"/>
+	<script type="application/javascript" language="javascript">
+		window.onload=draw;
+		function draw()
+			{
+			var canvas=document.getElementById("loader");
+			var ctx=canvas.getContext("2d");
+			ctx.fillStyle="rgba(20,34,203,2)";
+			ctx.beginPath();
+			ctx.arc(500,40,40,0,2*Math.PI);
+			ctx.fill();
+			
+		
+			}
+	</script>
+</head>
+<body>
+	<div class="entirePage">
+		<h1 style="color:white;text-align:center">Hi there!</h1>
+		<canvas id="loader" width="100" height="100" style="margin-left:auto;margin-right:auto;display:block">
+		</canvas>
+		<div id="intro">
+		<p><h3 style="color:cyan;text-align:center"> Introduction:</h3> My name is Abhinaya, and I'm a CSE student in NIT Trichy. I'm a fairly friendly person interested in works of art such as painting and poetry, and enjoy coding to an extent.</p>
+		</div>
+		<div id="where">
+		<p> <h3 style="color:cyan;text-align:center">Where Iam from:</h3> I am a Tamilian and I've lived most of my life in Chennai, attended a total of 5 schools in 4 different places and in 2 states..Quite a long story :P</p>
+		</div>
+		<div id="hobbies">
+		<p> <h3 style="color:cyan;text-align:center">Hobbies:</h3> My hobbies include watching TV, reading books, the occasional coding, singing, playing the keyboard and writing poems.</p>
+		</div>
+		<div id="memgame">
+		<marquee> <h3 style="color:yellow;text-align:center">To go to the Memory Game, Click the icon below..</h3></marquee>
+		<a href="SpiderMemorygame.html"><img src="memgame.jpg" style="margin-left:auto;margin-right:auto;display:block"/></a>
+		</div>
+	</div>
+
+</body>
+</html>

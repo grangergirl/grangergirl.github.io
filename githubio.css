@@ -1,0 +1,78 @@
+.entirePage
+{
+height:100%;
+width:100%;
+align:center;
+display:block;
+border:5dp dashed blue;
+background-image: url("sea.jpg");
+background-size:cover;
+background-repeat: no-repeat;
+vertical-align:middle;
+background-position: center;
+background-attachment: fixed;
+
+
+}
+#intro
+{
+height:text-wrap;
+width:25%;
+align:center;
+display:inline-block;
+border:3dp dashed cyan;
+background-color: #336699;
+vertical-align:middle;
+margin-top:1%;
+margin-left:10%;
+border-radius:10%;
+color:white;
+font-family:Comic sans;
+}
+#where
+{
+height:text-wrap;
+width:25%;
+align:center;
+display:inline-block;
+border:5dp dashed cyan;
+background-color: #336699;
+vertical-align:middle;
+margin-top:1%;
+margin-left:5%;
+border-radius:10%;
+color:white;
+font-family:Comic sans;
+}
+#hobbies
+{
+height:text-wrap;
+width:25%;
+align:center;
+display:inline-block;
+border:5dp dashed cyan;
+background-color: #336699;
+vertical-align:middle;
+margin-top:1%;
+margin-left:5%;
+border-radius:10%;
+color:white;
+font-family:"Comic sans";
+}
+#memgame
+{
+height:text-wrap;
+width:50%;
+align:center;
+display:block;
+border:5dp dashed cyan;
+background-color: #336699;
+vertical-align:middle;
+margin-left:25%;
+margin-top:2%;
+border-radius:8%;
+margin-bottom:20%;
+font-family:"Comic sans";
+}
+
+
