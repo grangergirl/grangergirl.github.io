@@ -3,22 +3,11 @@
 	<title>Memory game</title>
 	<link rel="stylesheet" href="memorygame.css" type="text/css"/>
 	<script type="text/javascript">
-function timeStall(j)
-		{
-							
-			if(j>0)
-			{
-				j--;
-
-				timeKeeper=setTimeout("timeStall(j)",1000);
-
-			}
-			else 
-			{
-				clearTimeout(timeKeeper);
-				
-
-			}		
+		function timeStall(i)
+		{				
+		document.getElementById(k[i]).innerHTML=elements[i];
+		var timeKeeper=setTimeout("function(){;}",1000);
+		clearTimeout(timeKeeper);
 		}
 		function allocPair(match)
 		{
@@ -42,12 +31,13 @@ function timeStall(j)
 			for(i=1;i<=8;i++)		
 			{			
 			allocPair(i);			
-			}	
+			}
+	
 			
 		}
 		function displayMap(i)
 		{
-var j,timeKeeper;
+
 		document.getElementById(k[i]).innerHTML=elements[i];
 			if(count%2==0)
 			{
@@ -60,14 +50,15 @@ var j,timeKeeper;
 				if(prevValue!=i)
 				{
 					if(elements[prevValue]!=elements[i])
-					{j=2;document.getElementById(k[i]).innerHTML=elements[i];
-
-timeStall(j);
+					{
+					timeStall(i);				
 					moves++;
 					document.getElementById("moves").innerHTML="Moves: "+moves;
-					document.getElementById(k[i]).innerHTML=" ";
+					document.getElementById(k[i]).innerHTML=elements[i];
 					document.getElementById(k[prevValue]).innerHTML=" ";
+					document.getElementById(k[i]).innerHTML=" ";
 					count++;
+
 
 					}
 					else
@@ -78,18 +69,29 @@ timeStall(j);
 					document.getElementById(k[i]).style.pointer-events="none";
 					document.getElementById(k[prevValue]).style.color="green";
 					document.getElementById(k[prevValue]).style.pointer-events="none";
-document.getElementById(k[i]).innerHTML=elements[i];
-document.getElementById(k[prevValue]).innerHTML=elements[prevValue];
+					document.getElementById(k[i]).innerHTML=elements[i];
+					document.getElementById(k[prevValue]).innerHTML=elements[prevValue];
 					score++;
 					document.getElementById("score").innerHTML="Score: "+score;
+					if(score==8)
+					{
+					alert("Congratulations! You won!");
+					document.getElementById("timecount").innerHTML="START";
+
+					document.getElementById("moves").innerHTML="Moves: 0";
+					document.getElementById("score").innerHTML="Score: 0";
+					moves=0;
+					score=0;
+					game();
+					}
 					count=0;
-				}
+					}
 				}
 			}
 	
 		}
 		function timeRun()
-		{
+		{	
 			document.getElementById("timecount").innerHTML="Time left: "+timecount;
 			if(timecount>0)
 			{
@@ -99,7 +101,14 @@ document.getElementById(k[prevValue]).innerHTML=elements[prevValue];
 			else 
 			{
 				clearTimeout(timer);
-				document.getElementById("timecount").innerHTML="Game over";
+				
+				alert("The game is over");
+				document.getElementById("timecount").innerHTML="START";
+				document.getElementById("moves").innerHTML="Moves: 0";
+				document.getElementById("score").innerHTML="Score: 0";
+				moves=0;
+				score=0;
+				game();
 
 			}		
 		}
@@ -109,6 +118,11 @@ document.getElementById(k[prevValue]).innerHTML=elements[prevValue];
 	<body>
 	<div class="container">
 		<div id="header"><h1 style="align:center">Memory Game</h1></div>
+		<div class="footer">
+			<div id="moves" style="display:inline-block">Moves: 0</div>			
+			<div  style="display:inline-block;vertical-lign:middle"><button id="timecount" onClick="timeRun()" style="margin:2%">START</button></div>
+			<div id="score"  style="display:inline-block">Score: 0</div>
+		</div>
 		<div class="gamearea">
 			<div class="row">
 				<div class="cell" id="zero" onClick="displayMap(0)"></div>
@@ -137,22 +151,17 @@ document.getElementById(k[prevValue]).innerHTML=elements[prevValue];
 				<div class="cell" id="fifteen" onClick="displayMap(15)"></div>
 			</div>
 		</div>
-		<div class="footer">
-			<div id="moves">Moves: 0</div>
-			<div id="score">Score: 0</div>
-			<div ><button id="timecount" onClick="timeRun()">START</button></div>
-		</div>
+		
 	</div>
 		<script type="text/javascript">
-var elements=[];
-var flag=[];
-var i,count=0,prevValue,timer,fl=1,moves=0,score=0,timecount=20;
-for(i=0;i<16;i++)
-flag[i]=0;
-var k=["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
+		var elements=[];
+		var flag=[];
+		var i,count=0,prevValue,timer,moves=0,score=0,timecount=60,timeKeeper;
+		for(i=0;i<16;i++)
+		flag[i]=0;
+		var k=["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];//array of id's of cells
 
-
-	game();
+		game();
 
 	
 		</script>

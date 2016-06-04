@@ -1,39 +1,39 @@
 .gamearea{
-height:510px;
-width:510px;
+height:300px;
+width:300px;
 background-color:cyan;
 font-color:blue;
 font-family:Kristen ITC;
 align:center;
 vertical-align:center;
 display:block;
-border:5px dashed white;
-margin-left:25%;
-margin-top:15%;
+
+margin-left:35%;
+margin-top:2%;
 }
 .row{
-height:125px;
-width:500px;
+height:25%;
+width:95%;
 background-color:pink;
 font-color:blue;
 display:block;
-border:2px solid black;
+margin-left:2.5%;
 border-radius:5%;
 }
 .cell{
-height:120px;
-width:120px;
+height:100%;
+width:22%;
 background-color:yellow;
 display:inline-block;
-border:1px solid dashed red;
-border-radius:1%;
+border:2px dashed red;
+border-radius:5%;
 font-size:50;
 text-align:center;
 vertical-align:middle;
 }
 .footer{
-height:150px;
-width:300px;
+height:text-wrap;
+width:text-wrap;
 background-color:green;
 display:inline-block;
 border:5px solid dashed red;
@@ -42,5 +42,16 @@ font-size:25;
 text-align:center;
 vertical-align:middle;
 margin-top:2%;
+margin-left:38%;
+}
+#header{
+height:text-wrap;
+width:300px;
+background-color:cyan;
+display:block;
+border:5px solid dashed red;
+border-radius:1%;
+text-align:center;
+vertical-align:middle;
 margin-left:35%;
 }
