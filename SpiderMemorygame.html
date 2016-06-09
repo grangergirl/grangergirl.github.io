@@ -3,12 +3,12 @@
 	<title>Memory game</title>
 	<link rel="stylesheet" href="memorygame.css" type="text/css"/>
 	<script type="text/javascript">
-		function timeStall(i)
-		{				
-		document.getElementById(k[i]).innerHTML=elements[i];
-		var timeKeeper=setTimeout("function(){;}",1000);
-		clearTimeout(timeKeeper);
-		}
+
+
+            function voidfunc() 
+                  {
+                
+                   }
 		function allocPair(match)
 		{
 		var i,f=0;
@@ -26,7 +26,8 @@
 		}
 
 		function game()
-		{		
+		{	
+		
 		var i;
 			for(i=1;i<=8;i++)		
 			{			
@@ -35,6 +36,33 @@
 	
 			
 		}
+		
+		function timeRun()
+		{	
+			
+			document.getElementById("timecount").innerHTML="Time left: "+timecount;
+			if(timecount>0)
+			{
+				timecount--;
+				timer=setTimeout("timeRun()",1000);
+			}
+			else 
+			{
+				clearTimeout(timer);
+				
+				alert("The game is over");
+				document.getElementById("timecount").innerHTML="Reload page to start again";
+				document.getElementById("moves").innerHTML="Moves: 0";
+				document.getElementById("score").innerHTML="Score: 0";
+				moves=0;
+				score=0;
+				//timecount=60;
+				//game();
+				//document.getElementById("timecount").onClick=timeRun();
+
+			}		
+		}
+		
 		function displayMap(i)
 		{
 
@@ -51,12 +79,15 @@
 				{
 					if(elements[prevValue]!=elements[i])
 					{
-					timeStall(i);				
+					//timeStall(i);				
 					moves++;
 					document.getElementById("moves").innerHTML="Moves: "+moves;
 					document.getElementById(k[i]).innerHTML=elements[i];
-					document.getElementById(k[prevValue]).innerHTML=" ";
-					document.getElementById(k[i]).innerHTML=" ";
+					setTimeout(function() {
+                                        document.getElementById(k[prevValue]).innerHTML = " ";
+                                        document.getElementById(k[i]).innerHTML = " "; } , 1000);
+					//document.getElementById(k[prevValue]).innerHTML=" ";
+					//document.getElementById(k[i]).innerHTML=" ";
 					count++;
 
 
@@ -66,23 +97,28 @@
 					moves++;
 					document.getElementById("moves").innerHTML="Moves: "+moves;
 					document.getElementById(k[i]).style.color="green";
-					document.getElementById(k[i]).style.pointer-events="none";
+					//document.getElementById(k[i]).style.pointer-events="none";
 					document.getElementById(k[prevValue]).style.color="green";
-					document.getElementById(k[prevValue]).style.pointer-events="none";
+					//document.getElementById(k[prevValue]).style.pointer-events="none";
 					document.getElementById(k[i]).innerHTML=elements[i];
 					document.getElementById(k[prevValue]).innerHTML=elements[prevValue];
+					document.getElementById(k[prevValue]).onclick = "voidfunc()";
+                                        document.getElementById(k[i]).onclick = "voidfunc()";    
 					score++;
 					document.getElementById("score").innerHTML="Score: "+score;
 					if(score==8)
 					{
 					alert("Congratulations! You won!");
-					document.getElementById("timecount").innerHTML="START";
+					clearTimeout(timer);
+					document.getElementById("timecount").innerHTML="Reload page to start again";
 
 					document.getElementById("moves").innerHTML="Moves: 0";
 					document.getElementById("score").innerHTML="Score: 0";
 					moves=0;
 					score=0;
-					game();
+					//timecount=60;
+					//game();
+					//document.getElementById("timecount").onClick=timeRun();
 					}
 					count=0;
 					}
@@ -90,28 +126,7 @@
 			}
 	
 		}
-		function timeRun()
-		{	
-			document.getElementById("timecount").innerHTML="Time left: "+timecount;
-			if(timecount>0)
-			{
-				timecount--;
-				timer=setTimeout("timeRun()",1000);
-			}
-			else 
-			{
-				clearTimeout(timer);
-				
-				alert("The game is over");
-				document.getElementById("timecount").innerHTML="START";
-				document.getElementById("moves").innerHTML="Moves: 0";
-				document.getElementById("score").innerHTML="Score: 0";
-				moves=0;
-				score=0;
-				game();
-
-			}		
-		}
+		
 		
 	</script>
 	</head>
@@ -120,7 +135,7 @@
 		<div id="header"><h1 style="align:center">Memory Game</h1></div>
 		<div class="footer">
 			<div id="moves" style="display:inline-block">Moves: 0</div>			
-			<div  style="display:inline-block;vertical-lign:middle"><button id="timecount" onClick="timeRun()" style="margin:2%">START</button></div>
+			<div  style="display:inline-block;vertical-lign:middle"><button id="timecount" onClick="timeRun()">START</button></div>
 			<div id="score"  style="display:inline-block">Score: 0</div>
 		</div>
 		<div class="gamearea">
@@ -154,6 +169,7 @@
 		
 	</div>
 		<script type="text/javascript">
+
 		var elements=[];
 		var flag=[];
 		var i,count=0,prevValue,timer,moves=0,score=0,timecount=60,timeKeeper;

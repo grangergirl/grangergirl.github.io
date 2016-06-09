@@ -33,7 +33,7 @@ vertical-align:middle;
 }
 .footer{
 height:text-wrap;
-width:text-wrap;
+width:35%;
 background-color:green;
 display:inline-block;
 border:5px solid dashed red;
@@ -41,8 +41,7 @@ border-radius:1%;
 font-size:25;
 text-align:center;
 vertical-align:middle;
-margin-top:2%;
-margin-left:38%;
+margin-left:30%;
 }
 #header{
 height:text-wrap;
