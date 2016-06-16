@@ -41,14 +41,14 @@
 			position:absolute;
 			margin:0px auto;
 			background:#336699;
-			font-color:white;
+			
 			}
 		#points{
 			height:20%;
 			width:80%;
 			font-size:30px;
 			text-align:center;
-			margin-left:10%;
+			margin-left:8%;
 			margin-top:40%;
 			position:relative;
 			padding-top:25%;
@@ -58,10 +58,21 @@
 			width:80%;
 			font-size:25px;
 			text-align:center;
-			margin-left:10%;
+			margin-left:8%;
 			margin-top:10%;
 			position:relative;
 			background:cyan;			
+			}
+		#button{
+			height:6%;
+			width:80%;
+			font-size:25px;
+			text-align:center;
+			margin-left:8%;
+			margin-top:10%;
+			position:relative;
+			background:#FF9900;	
+			padding-top:3%;		
 			}
 		#ponger{
 			display:inline-block;
@@ -108,23 +119,23 @@
   	top_y = y - 30;
   	left_x = x-30;;
  	bottom_y =y+30;
- 	if(y-30<0) // hitting the top wall
+ 	if(top_y<0) // hitting the top wall
 	 {
 		y=30;
    		ySpeed=-ySpeed;
   	} 
 	else 
 	{
-	if(y+30>600)// hitting the bottom wall
+	if(bottom_y>600)// hitting the bottom wall
  	{ 
     		y=570;
    		ySpeed=-ySpeed;
   	}
 	}
 
-    	if((left_x < 50) &&( right_x>50)) 
+    	if(right_x <=110) 
  	{
-	if((top_y >= paddle1) &&( bottom_y <=( paddle1+200)))
+	if((top_y >= (paddle1-59)) &&( bottom_y <=( paddle1+259)))
      	{ 
       		xSpeed = 3;
       		ySpeed += (paddle1Speed/ 2);
@@ -133,64 +144,29 @@
 		count++;
 		scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
 	}
-	else if((top_y <=paddle1) && (bottom_y>=( paddle1+59)))
-	{     
-      		xSpeed =3;
-      		ySpeed += (paddle1Speed / 2);
-     		x+= xSpeed;
-		score1++;
-		count++;
-		scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
-	}
-	else if((top_y <=(paddle1+200)) && (bottom_y>=( paddle1+259)))
-	{     
-      		xSpeed =3;
-      		ySpeed += (paddle1Speed / 2);
-      		x+= xSpeed;
-		score1++;
-		count++;
-		scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
-	}
 	else
    	{
 		count=1;
-		xSpeed=0;
-		ySpeed=0;
 		playpong.stop();
 		over.play();score2++;
 		document.getElementById("ponger").style.backgroundImage = "url('ponggame1.jpg')";
 		scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+(1+score2);
 		document.getElementById("instructions").innerHTML="Game Over, the winner is Player 2!";
-		flag=1;
+		flag=1;load=0;
+		gameState=0;a=3;b=1.5;
+		document.getElementById("button").innerHTML="Restart";
+
 	}
   	} 
 	else
 	 {
-    	if((left_x < 950) && (right_x > 950) )
+    	if(left_x >=890 )
 	{
-		if((top_y >=paddle2) && (bottom_y<=( paddle2+200)))
+		if((top_y >=(paddle2-59)) && (bottom_y<=( paddle2+259)))
 		{
       			xSpeed =-3;
-     			 ySpeed += (paddle2Speed / 2);
+     			ySpeed += (paddle2Speed / 2);
      			 x+= xSpeed;
-			score2++;
-			count++;
-			scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
-		}
-		else if((top_y <=paddle2) && (bottom_y>=( paddle2+59)))
-		{      
-      			xSpeed =-3;
-      			ySpeed += (paddle2Speed / 2);
-     			x+= xSpeed;
-			score2++;
-			count++;
-			scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
-		}
-		else if((top_y <=(paddle2+200)) && (bottom_y>=( paddle2+259)))
-		{
-      			xSpeed =-3;
-      			ySpeed += (paddle2Speed / 2);
-     			x+= xSpeed;
 			score2++;
 			count++;
 			scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
@@ -200,12 +176,12 @@
 			count=0;
 			playpong.stop();
 			over.play();
-			xSpeed=0;
-			ySpeed=0;
 			document.getElementById("ponger").style.backgroundImage = "url('ponggame1.jpg')";
 			scoreboard.innerHTML="Player 1:     "+(1+score1)+" Player 2:     "+score2;
 			document.getElementById("instructions").innerHTML="Game Over, the winner is Player 1!";
-			flag=1;
+			flag=1;load=0;
+			gameState=0;a=3;b=1.5;
+			document.getElementById("button").innerHTML="Restart";
 
 		}
   	}
@@ -227,7 +203,7 @@
 	if(count%2==0)
 	{
 
-		if(e.keyCode==76)
+		if(e.keyCode==83)
 		{
 		ctx.fillStyle="rgba(0,200,0,1)";
 		if(paddle1<400)
@@ -238,7 +214,7 @@
 		ctx.restore();
 		}
 		}
-		else if(e.keyCode==79)
+		else if(e.keyCode==69)
 		{
 		ctx.fillStyle="rgba(0,200,0,1)";
 		if(paddle1>0)
@@ -285,14 +261,52 @@
 		}
 	}
 	}
+	function pauser()
+	{	count++;
+		playpong.stop();
+		a=xSpeed;
+		b=ySpeed;
+		xSpeed=0;
+		ySpeed=0;
+		ctx.clearRect(0,0,1000,600);
+	}
+	function unpauser()
+	{	count++;
+		playpong.play();
+		ctx.fillStyle="rgba(0,200,0,1)";
+		ctx.fillRect(0,paddle1,50,200);
+		ctx.fillRect(950,paddle2,50,200);
+		xSpeed=a;
+		ySpeed=b;
+	}
+		function manager()
+		{
+		if(gameState==0)
+		{
+			gameState=1;
+			document.getElementById("button").innerHTML="Pause";
+			unpauser();
+			if(load==0)
+			loader();
+		}
+		else
+		{
+			gameState=0;
+			document.getElementById("button").innerHTML="Resume";
+			pauser();
+		}
+		}
+
 	function loader()
 	{
+	load=1;
 	if(flag==1)
 	{
 	over.stop();
 	flag=0;
 	}
 	playpong.play();
+	document.getElementById("button").innerHTML="Pause";
  	x=Math.floor(Math.random()*840)+1+80;
  	y=Math.floor(Math.random()*540)+1+30;
 	xSpeed=3;
@@ -328,12 +342,14 @@
 	<canvas id="ponger" height="600" width="1000"></canvas>
 	</div>
 		<div id="scoreboard" >		
-		<div><center><h1 >SCORE BOARD</h1></center></div>
+		<div><center><h1  style="color:white" >SCORE BOARD</h1></center></div>
 		<div id="points" style="background:cyan"><center>Player 1:     0 Player 2:     0</center></div>
+		
+		<div id="button" style="color:white;font-family:Arial" onClick="manager()">Start</div>
 		<div id="instructions"></div>
 		</div>
 	</div>	
-	<div id="footer" style="color:yellow">Player 1 uses the left paddle and Player 2, the right; 'o' and 'l' keys move paddle up and down; automatic transfer of control to the paddles </div>
+	<div id="footer" style="color:yellow">Player 1 uses the left paddle (e and s keys) and Player 2, the right (o and l keys) to move paddles up and down. </div>
 	</div>
 	</center>
 <script type="application/javascript" language="javascript">
@@ -348,10 +364,10 @@
 	var paddle1=0,paddle2=400;
 	var timer,right_x,left_x,top_y,bottom_y;
 	var xSpeed,ySpeed,paddle1Speed,paddle2Speed;
-	var flag=0;
+	var flag=0,a=3,b=1.5;
 	var ctx=ponger.getContext("2d");
-	loader();
-
+	var gameState=0;//0 is start or restart, 1 is paused
+	var load=0;
 		</script>
 </body>
 </html>
