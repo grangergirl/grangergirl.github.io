@@ -1,0 +1,373 @@
+<html>
+<head>
+	<title>Pong Game</title>
+	<style type="text/css">
+		#game{
+			height:600px;
+			width:1000px;
+			display:inline-block;
+			overflow:hidden;
+			margin-left:-250px;
+			}
+		#header{
+			height:8%;
+			width:1250px;
+			font-size:30px;
+			text-align:center;
+			margin-left:0px;
+			display:block;
+			position:relative;
+			background:cyan;	
+			padding-top:2%;
+			font-family:Castellar;
+			}
+		#footer{
+			height:40px;
+			width:1250px;
+			font-size:20px;
+			text-align:center;
+			margin-left:0px;
+			display:block;
+			position:relative;
+			background:blue;	
+			padding-top:1%;
+			font-family:Candara;
+			}
+
+		#scoreboard{
+			display:inline-block;
+			height:600px;
+			width:250px;
+			position:absolute;
+			margin:0px auto;
+			background:#336699;
+			
+			}
+		#points{
+			height:20%;
+			width:80%;
+			font-size:30px;
+			text-align:center;
+			margin-left:8%;
+			margin-top:40%;
+			position:relative;
+			padding-top:25%;
+			}
+		#instructions{
+			height:text-wrap;
+			width:80%;
+			font-size:25px;
+			text-align:center;
+			margin-left:8%;
+			margin-top:10%;
+			position:relative;
+			background:cyan;			
+			}
+		#button{
+			height:6%;
+			width:80%;
+			font-size:25px;
+			text-align:center;
+			margin-left:8%;
+			margin-top:10%;
+			position:relative;
+			background:#FF9900;	
+			padding-top:3%;		
+			}
+		#ponger{
+			display:inline-block;
+			position:relative;
+			background:black;
+			width:1000px;
+			height:600px;
+			margin-left:0px;
+			}
+		
+	</style>
+	<script type="application/javascript" language="javascript">
+	function getCssProperty(elmId, property)
+	{
+   		var elem = document.getElementById(elmId);
+   		return window.getComputedStyle(elem,null).getPropertyValue(property);
+	}
+	function sound(src) 
+	{	
+    		this.sound = document.createElement("audio");
+    		this.sound.src = src;
+    		this.sound.setAttribute("preload", "auto");
+    		this.sound.setAttribute("controls", "none");
+		this.sound.setAttribute("loop","yes");
+    		this.sound.style.display = "none";
+    		document.body.appendChild(this.sound);
+   		this.play = function(){
+        		this.sound.play();
+    			}
+    		this.stop = function(){
+       			 this.sound.pause();
+    			}
+		this.resume=function(){
+			this.sound.resume();
+			}
+	}
+
+	function moveball()
+	{	
+		
+	 x += xSpeed;
+	 y +=ySpeed;	
+ 	right_x = x+30;
+  	top_y = y - 30;
+  	left_x = x-30;;
+ 	bottom_y =y+30;
+ 	if(top_y<0) // hitting the top wall
+	 {
+		y=30;
+   		ySpeed=-ySpeed;
+  	} 
+	else 
+	{
+	if(bottom_y>600)// hitting the bottom wall
+ 	{ 
+    		y=570;
+   		ySpeed=-ySpeed;
+  	}
+	}
+
+    	if(right_x <=110) 
+ 	{
+	if((top_y >= (paddle1-59)) &&( bottom_y <=( paddle1+259)))
+     	{ 
+      		xSpeed = 3;
+      		ySpeed += (paddle1Speed/ 2);
+      		x += xSpeed;
+		score1++;
+		count++;
+		scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
+	}
+	else
+   	{
+		count=1;
+		playpong.stop();
+		over.play();score2++;
+		document.getElementById("ponger").style.backgroundImage = "url('ponggame1.jpg')";
+		scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+(1+score2);
+		document.getElementById("instructions").innerHTML="Game Over, the winner is Player 2!";
+		flag=1;load=0;
+		gameState=0;a=3;b=1.5;
+		document.getElementById("button").innerHTML="Restart";
+
+	}
+  	} 
+	else
+	 {
+    	if(left_x >=890 )
+	{
+		if((top_y >=(paddle2-59)) && (bottom_y<=( paddle2+259)))
+		{
+      			xSpeed =-3;
+     			ySpeed += (paddle2Speed / 2);
+     			 x+= xSpeed;
+			score2++;
+			count++;
+			scoreboard.innerHTML="Player 1:     "+score1+" Player 2:     "+score2;
+		}
+		else
+		{
+			count=0;
+			playpong.stop();
+			over.play();
+			document.getElementById("ponger").style.backgroundImage = "url('ponggame1.jpg')";
+			scoreboard.innerHTML="Player 1:     "+(1+score1)+" Player 2:     "+score2;
+			document.getElementById("instructions").innerHTML="Game Over, the winner is Player 1!";
+			flag=1;load=0;
+			gameState=0;a=3;b=1.5;
+			document.getElementById("button").innerHTML="Restart";
+
+		}
+  	}
+ 	}
+
+	ctx.clearRect(50,0,900,600);
+	ctx.fillStyle="rgba(244,194,194,1)";
+	ctx.beginPath();
+	ctx.arc(x,y,30,0,2*Math.PI);
+	ctx.fill();
+	if(flag==0)
+	requestAnimationFrame(moveball);
+	else
+	document.onkeydown=loader;
+	}	
+	function draw(e)
+	{
+	ctx.save();
+	if(count%2==0)
+	{
+
+		if(e.keyCode==83)
+		{
+		ctx.fillStyle="rgba(0,200,0,1)";
+		if(paddle1<400)
+		{
+		paddle1+=paddle1Speed;
+		ctx.clearRect(0,0,50,600);
+		ctx.fillRect(0,paddle1,50,200);
+		ctx.restore();
+		}
+		}
+		else if(e.keyCode==69)
+		{
+		ctx.fillStyle="rgba(0,200,0,1)";
+		if(paddle1>0)
+		{
+		paddle1-=paddle1Speed;
+		ctx.clearRect(0,0,50,600);
+		ctx.fillRect(0,paddle1,50,200);
+		ctx.restore();
+		}
+		}
+	}
+	else
+	{
+		if(e.keyCode==76)
+		{	
+		ctx.fillStyle="rgba(0,200,0,1)";
+		if(paddle2<400)
+		{
+		paddle2+=paddle2Speed;
+		ctx.clearRect(950,0,50,600);
+		ctx.fillRect(950,paddle2,50,200);
+		ctx.restore();
+		}
+		}
+		else if(e.keyCode==79)
+		{
+		ctx.fillStyle="rgba(0,200,0,1)";
+		if(paddle2>0)
+		{
+		paddle2-=paddle2Speed;
+		ctx.clearRect(950,0,50,600);
+		ctx.fillRect(950,paddle2,50,200);
+		ctx.restore();
+		}
+		}
+		else
+		{
+		ctx.clearRect(0,0,50,600);
+		ctx.clearRect(950,0,50,600);
+		ctx.fillStyle="rgba(0,200,0,1)";
+		ctx.fillRect(0,paddle1,50,200);
+		ctx.fillRect(950,paddle2,50,200);
+		ctx.restore();
+		}
+	}
+	}
+	function pauser()
+	{	count++;
+		playpong.stop();
+		a=xSpeed;
+		b=ySpeed;
+		xSpeed=0;
+		ySpeed=0;
+		ctx.clearRect(0,0,1000,600);
+	}
+	function unpauser()
+	{	count++;
+		playpong.play();
+		ctx.fillStyle="rgba(0,200,0,1)";
+		ctx.fillRect(0,paddle1,50,200);
+		ctx.fillRect(950,paddle2,50,200);
+		xSpeed=a;
+		ySpeed=b;
+	}
+		function manager()
+		{
+		if(gameState==0)
+		{
+			gameState=1;
+			document.getElementById("button").innerHTML="Pause";
+			unpauser();
+			if(load==0)
+			loader();
+		}
+		else
+		{
+			gameState=0;
+			document.getElementById("button").innerHTML="Resume";
+			pauser();
+		}
+		}
+
+	function loader()
+	{
+	load=1;
+	if(flag==1)
+	{
+	over.stop();
+	flag=0;
+	}
+	playpong.play();
+	document.getElementById("button").innerHTML="Pause";
+ 	x=Math.floor(Math.random()*840)+1+80;
+ 	y=Math.floor(Math.random()*540)+1+30;
+	xSpeed=3;
+	ySpeed=1.5;
+	paddle1Speed=10;
+	paddle2Speed=10;
+	count=1;
+	score1=0,score2=0;
+	paddle1=0,paddle2=400;
+	document.getElementById("instructions").innerHTML="";
+	document.getElementById("ponger").style.background = "black";
+	scoreboard.innerHTML="Player 1:     0 Player 2:     0";
+	ctx.clearRect(0,0,1000,600);
+	ctx.fillStyle="rgba(0,200,0,1)";
+	ctx.fillRect(0,0,50,200);
+	ctx.fillRect(950,400,50,200);
+	ctx.fillStyle="rgba(244,194,194,1)";
+	ctx.beginPath();
+	ctx.arc(x,y,30,0,2*Math.PI);
+	ctx.fill();
+	document.onkeydown=draw;
+	if(document.onkeydown)
+	requestAnimationFrame(moveball);     
+	}
+	</script>
+	
+</head>
+<body style="background:black;padding-top:1%">	
+	<center>
+	<div style="border:5px dashed green;display:inline-block">
+	<div id="header" style="color:red"><b>The Pong Game</b></div>
+	<div id="game" style="display:inline-block">
+	<canvas id="ponger" height="600" width="1000"></canvas>
+	</div>
+		<div id="scoreboard" >		
+		<div><center><h1  style="color:white" >SCORE BOARD</h1></center></div>
+		<div id="points" style="background:cyan"><center>Player 1:     0 Player 2:     0</center></div>
+		
+		<div id="button" style="color:white;font-family:Arial" onClick="manager()">Start</div>
+		<div id="instructions"></div>
+		</div>
+	</div>	
+	<div id="footer" style="color:yellow">Player 1 uses the left paddle (e and s keys) and Player 2, the right (o and l keys) to move paddles up and down. </div>
+	</div>
+	</center>
+<script type="application/javascript" language="javascript">
+	
+	var ponger=document.getElementById("ponger");
+	var x,y;
+	var scoreboard=document.getElementById("points");
+	var count;
+	var score1,score2;	
+	var playpong=new sound("../resources/journey.mp3");
+	var over=new sound("../resources/jump.ogg");
+	var paddle1=0,paddle2=400;
+	var timer,right_x,left_x,top_y,bottom_y;
+	var xSpeed,ySpeed,paddle1Speed,paddle2Speed;
+	var flag=0,a=3,b=1.5;
+	var ctx=ponger.getContext("2d");
+	var gameState=0;//0 is start or restart, 1 is paused
+	var load=0;
+		</script>
+</body>
+</html>
