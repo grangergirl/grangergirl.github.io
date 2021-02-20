@@ -6,12 +6,37 @@
 -->
 <html>
 	<head>
-		<title>Abhinaya says hi</title>
+		<title>Homepage of Abhinaya S B</title>
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/png">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+		.header {
+		  position: fixed;
+		  top: 0;
+		  z-index: 1;
+		  width: 100%;
+		  background-color: #f1f1f1;
+		}
+
+		.header h2 {
+		  text-align: center;
+		}
+
+		.progress-container {
+		  width: 100%;
+		  height: 8px;
+		  background: #ccc;
+		}
+
+		.progress-bar {
+		  height: 8px;
+		  background: #3535A1;
+		  width: 0%;
+		}
+		</style>
 
 	</head>
 	<body class="is-preload">
@@ -20,8 +45,8 @@
 			<section id="header">
 				<div class="inner">
 					<span class="icon solid major fa-door-open"></span>
-					<h1>Hi there, I'm <strong>Abhinaya</strong>, another human<br />
-					finding her footing in this world. </h1>
+					<h1>Hi there, I'm <strong>Abhinaya</strong><br />
+					a techie, aspiring to solve impactful problems</h1>
 					<p><b>Welcome to my homepage! Hope you find what you're looking for :)</b><br />
 					<ul class="actions special">
 						<li><a href="#one" class="button wide primary scrolly">Discover</a></li>
@@ -33,6 +58,11 @@
 					</ul>
 				</div>
 			</section>
+			<div class="header">
+			  <div class="progress-container">
+			    <div class="progress-bar" id="myScrollBar"></div>
+			  </div>  
+			</div>
 
 		<!-- One -->
 			<section id="one" class="main style1">
@@ -42,8 +72,8 @@
 							<header class="major">
 								<h2><b>Who I am</b><br /></h2>
 							</header>
-							<p>By profession, an <b>Engineer</b> at <b>Qualcomm</b>, where I work on improving the efficiency of Snapdragon's AI processor as part of the Software Architecture team. In the past, I have been a student researcher, academic rank holder, & held various positions of responsibility at <b>NIT Trichy</b>, where I graduated with a B.Tech. (Hons.) in <b>Computer Science & Engineering</b> in 2019. I hope to make the world a better place through efficient & effective use of technology. 
-							<p>By passion, I'm an avid reader of self-help books & consumer of feel-good fiction. I am a trained Carnatic singer & a keyboard player. I enjoy writing poetry, which I publish on my <a href="https://sbabhinaya.medium.com" target="_blank"><b>blog</b></a> & serve as the creative lead for <a href="https://medium.com/yogavaidhyam" target="_blank"><b>Yogavaidhyam</b></a>, a platform for learning Yoga Therapy based fitness practices.
+							<p>By profession, an <b>Engineer</b> at <b>Qualcomm</b>, where I work on improving the efficiency of Snapdragon's AI processor as part of the Software Architecture team. In the past, I have been a student researcher, academic rank holder, & held various positions of responsibility at <b>National Institute of Technology, Tiruchirappalli</b>, where I graduated with a B.Tech. (Hons.) in <b>Computer Science & Engineering</b> in 2019. I hope to make the world a better place through efficient & effective use of technology. 
+							<p>By passion, I'm an avid reader of self-help books & consumer of feel-good fiction. I enjoy writing poetry, which I publish on my <a href="https://sbabhinaya.medium.com" target="_blank"><b>blog</b></a>. I also serve as the creative lead for <a href="https://medium.com/yogavaidhyam" target="_blank"><b>Yogavaidhyam</b></a>, a platform for learning Yoga Therapy based fitness practices.
 							<p>Download my CV <a href="resources/asb_resume.pdf" target="_blank">here</a>.
 						</div>
 						<div class="col-6 col-12-medium imp-medium">
@@ -112,7 +142,102 @@
 			<section id="two" class="main style2">
 				<div class="container">
 					<div class="row gtr-150">
+						<div class="col-7 col-12-medium">
+							<header class="major">
+								<h2>Academic projects<br /></h2>
+							</header>
+							<p><b>A Question Answering & Quiz Generation Chatbot for Education</b>: I, along with <a href="https://www.linkedin.com/in/aishwarya05nair" target="_blank">Aishwarya</a> and <a href="https://www.linkedin.com/in/sreelakshmi-shaji-3b4433130" target="_blank">Sreelakshmi</a>, under the guidance of <b><a href="https://www.nitt.edu/home/academics/departments/cse/faculty/jnirmala/" target="_blank">Prof. Jaya Nirmala </a></b> at <b>NIT Trichy</b> developed a chatbot that takes in a soft copy of any text material and generates questions for testing the user in the subject matter. The user will also be able to ask questions within the context of the material and get relevant answers. We considered our target user group to be <b>primary</b> and <b>middle school students</b>. This work was published as proceedings of <b>Grace Hopper Celebration, India</b> (2019), where I presented our work.
+
+							<p><b><a href="http://ekshiksha.glitch.me/" target="_blank">Database to Animation Framework for Chemistry</a></b>: I, along with <a href="https://www.linkedin.com/in/aishwarya05nair" target="_blank">Aishwarya</a>, <a href="https://www.github.com/lonewolf3739" target="_blank">Srikanth</a> and <a href="https://www.linkedin.com/in/shreya-govil" target="_blank">Shreya</a> developed a Java based web application that would retrieve suitable chemical data from the database to illustrate a Chemistry concept by rendering 3D animations using three.js. This was done as part of <a href="https://www.ekshiksha.org.in/" target="_blank"><b>Ekshiksha</b></a> in IIT Bombay headed by <b><a href="https://www.it.iitb.ac.in/~dbp/" target="_blank">Prof. D.B.Phatak</a></b> & the programme was supported by <a href="https://nmeict.ac.in/" target="_blank"><b>National Mission on Education through Information and Communication Technology (NME-ICT)</b></a>, India.
+
+							<p><b>Autonomous Driving Vehicles</b>: I worked under the supervision of <b><a href="http://faculty.iitr.ac.in/~sparshfec/" target="_blank">Prof. Sparsh Mittal</a></b> at <b>IIT Hyderabad</b> and conducted experiments & analysis for system-level optimization of ADV algorithms for low-power embedded  real-time systems, which was later presented as a poster in the <b>Intel India Research Colloquium</b>, 2019. I gained exposure to <b>Computer Vision</b> algorithms such as <b>YOLO</b>, and spent 2 exciting months during the remote internship.
+
+							<p><b>Clustering algorithm for WSNs</b>: I worked with <a href="https://www.linkedin.com/in/lavanya-vvs" target="_blank">Lavanya</a> under the guidance of <b><a href="https://www.nitt.edu/home/academics/departments/cse/faculty/nithya/" target="_blank">Prof. B. Nithya </a></b> at <b>NIT Trichy</b> developed a cluster head selection & data communication protocol for <b>Wireless Sensor Networks</b>. Our algorithm, called <b>PartyCH</b> indicated an improvement in network lifetime by <b>150%</b> and we presented our work at Delhi, in <b>GUCON 2018</b>.
+
+							<p><b><a href="https://github.com/vishnutdeepak/TheShield" target="_blank">The Shield</a></b>: I worked with <a href="https://www.linkedin.com/in/vishnu-t-deepak" target="_blank">Vishnu</a> to develop an <b>Android app</b> focusing on <b>safety</b> and <b>personal protection</b>, especially during night time. The app can be used to set repetitve <b>"I'm safe"</b> reminders at the time of caution. When the user does not mark herself safe within a threshold time period, the <b>emergency contact</b> is called. Additionally, the feature to <b>sound an alarm</b> can be used to draw attention. The app also comes with <b>location services</b> to find a friend / police nearby. 
+						</div>
+						<div class="col-5 col-12-medium">
+						<header align="right" >
+								<h2>&nbsp;</h2>
+							</header>
+							<center>
+							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaDos09wGNaM73xzCIzIEZfB62IR4fP7KyZ7p2545P4NkCXcivfK_lA7vGpNmYf5EPYCSZ_ph0BonI/embed?start=false&loop=true&delayms=15000" frameborder="0" width="500" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							<h4>Chatbots for education - Slide deck</h4>
+							<iframe width="500" height="300" src="https://www.youtube.com/embed/J93wJaCgtmQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<h4>EkShiksha Chemistry - Presentation | <a href="resources/ekshiksha_report_asb.pdf" target="_blank">Report</a></h4>
+							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRmBd7pZVYG11HyfuJPQ4casu30PM6sU-c7ahOa7z1ggbCTmmD3w8cYPBiagy0KEg/embed?start=false&loop=true&delayms=15000" frameborder="0" width="500" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							<h4>PartyCH for WSNs - Slide deck</h4>
+							</center>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Three -->
+			<section id="six" class="main style1 special">
+				<div class="container" overflow="auto">
+					<header class="major">
+						<h2>Featured Articles</h2>
+					</header>
+					<div class="row gtr-150">
 						<div class="col-3 col-12-medium">
+							<span class="image fit"><img src="images/fly.jpeg" alt="Eagle flying" /></span>
+							<h4>Flying high<br/>
+							— an essay</h4>
+							<align="justify">
+							<p>My essay about the power of reinvention, by pushing ourselves to go beyond our comfort zones. </p>	
+							</align="justify">		
+							<ul class="actions special">
+								<li><a href="https://sbabhinaya.medium.com/flying-high-87116c816503" target="_blank" class="button">Read</a></li>
+							</ul>
+						</div>
+						<div class="col-3 col-12-medium">
+							<span class="image fit"><img src="images/whatsapp.jpg" alt="WhatsApp for Business" /></span>
+							<h4>WhatsApp for B2C communication</h4>
+							<align="justify">
+							<p>Why I believe companies will succeed in reaching their customers via  WhatsApp for Business.</p>	
+							</align="justify">		
+							<ul class="actions special">
+								<li><a href="https://sbabhinaya.medium.com/what-makes-whatsapp-a-great-solution-for-b2c-communication-190d02699444" target="_blank" class="button">Read</a></li>
+							</ul>
+						</div>
+						<div class="col-3 col-12-medium">
+							<span class="image fit"><img src="images/nitt.jpg" alt="NITT" /></span>
+							<h4>An Ode to NIT Trichy<br/>
+							— a poem</h4>
+							<align="justify">
+							<p>My heart-felt ode to my alma mater, National Institute of Technology, Tiruchirappalli.</p>	
+							&nbsp;
+							</align="justify">		
+							<ul class="actions special">
+								<li><a href="https://medium.com/the-festember-blog/an-ode-to-nit-trichy-55dda5429590" target="_blank" class="button">Read</a></li>
+							</ul>
+						</div>
+						<div class="col-3 col-12-medium">
+							<span class="image fit"><img src="images/hande.jpeg" alt="Siddharth Hande" /></span>
+							<h4>Uncovering smart cities with Siddharth Hande</h4>
+							<align="justify">
+							<p>When I interviewed Siddharth Hande, CEO of <a href="https://www.kabadiwallaconnect.in/" target="_blank">Kabadiwalla Connect</a> at Pragyan Youth Summit, 2018.</p>	
+							</align="justify">		
+							<ul class="actions special">
+								<li><a href="https://medium.com/pragyan-blog/uncovering-smart-cities-with-siddharth-hande-2f0748ffd603" target="_blank" class="button">Read</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="main style2">
+			<center>
+				<div class="container">
+				<header class="major">
+					<h2>Creative projects<br /></h2>
+				</header>
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
 							<ul class="major-icons">
 								<li>
 									<span class="icon solid style1 major fa-book-open"></span>
@@ -123,6 +248,10 @@
 									Interactive retelling
 									</a>
 								</li>
+							</ul>
+						</div>
+						<div class="col-4 col-12-medium">
+							<ul class="major-icons">
 								<li>
 								<span class="icon solid style4 major fa-paint-brush"></span>
 									<br/>
@@ -133,6 +262,10 @@
 								    SPIC MACAY
 									</a>
 								</li>
+							</ul>
+						</div>
+						<div class="col-4 col-12-medium">
+							<ul class="major-icons">
 								<li>
 								<span class="icon solid style6 major fa-heartbeat"></span>
 									<br/>
@@ -142,73 +275,12 @@
 									Yogavaidhyam
 									</a>
 								</li>
-
 							</ul>
-						</div>
-						<div class="col-9 col-12-medium">
-							<header class="major">
-								<h2>Interesting projects I've worked on<br /></h2>
-								<h3>Technical or otherwise</h3>
-							</header>
-							<p><b>A Question Answering & Quiz Generation Chatbot for Education</b>: I, along with <a href="https://www.linkedin.com/in/aishwarya05nair" target="_blank">Aishwarya</a> and <a href="https://www.linkedin.com/in/sreelakshmi-shaji-3b4433130" target="_blank">Sreelakshmi</a>, under the guidance of <b><a href="https://www.nitt.edu/home/academics/departments/cse/faculty/jnirmala/" target="_blank">Prof. Jaya Nirmala </a></b> at <b>NIT Trichy</b> developed a chatbot that takes in a soft copy of any text material and generates questions for testing the user in the subject matter. The user will also be able to ask questions within the context of the material and get relevant answers. We considered our target user group to be <b>primary</b> and <b>middle school students</b>. This work was published as proceedings of <b>Grace Hopper Celebration, India</b> (2019), where I presented our work.
-
-							<p><b><a href="http://ekshiksha.glitch.me/" target="_blank">Database to Animation Framework for Chemistry</a></b>: I, along with <a href="https://www.linkedin.com/in/aishwarya05nair" target="_blank">Aishwarya</a>, <a href="https://www.github.com/lonewolf3739" target="_blank">Srikanth</a> and <a href="https://www.linkedin.com/in/shreya-govil" target="_blank">Shreya</a> developed a Java based web application that would retrieve suitable chemical data from the database to illustrate a Chemistry concept by rendering 3D animations using three.js. This was done as part of <a href="https://www.ekshiksha.org.in/" target="_blank"><b>Ekshiksha</b></a> in IIT Bombay headed by <b><a href="https://www.it.iitb.ac.in/~dbp/" target="_blank">Prof. D.B.Phatak</a></b> & the programme was supported by <a href="https://nmeict.ac.in/" target="_blank"><b>National Mission on Education through Information and Communication Technology (NME-ICT)</b></a>, India. When we weren't coding, we explored the picturesque campus, climbed the hillock within & spent many evenings at the Juhu beach.
-
-							<p><b>Autonomous Driving Vehicles</b>: I worked under the supervision of <b><a href="http://faculty.iitr.ac.in/~sparshfec/" target="_blank">Prof. Sparsh Mittal</a></b> at <b>IIT Hyderabad</b> and conducted experiments & analysis for system-level optimization of ADV algorithms for low-power embedded  real-time systems, which was later presented as a poster in the <b>Intel India Research Colloquium</b>, 2019. I gained exposure to <b>Computer Vision</b> algorithms such as <b>YOLO</b>, and spent 2 exciting months during the remote internship.
-
-							<p><b>Clustering algorithm for WSNs</b>: I worked with <a href="https://www.linkedin.com/in/lavanya-vvs" target="_blank">Lavanya</a> under the guidance of <b><a href="https://www.nitt.edu/home/academics/departments/cse/faculty/nithya/" target="_blank">Prof. B. Nithya </a></b> at <b>NIT Trichy</b> developed a cluster head selection & data communication protocol for <b>Wireless Sensor Networks</b>. Our algorithm, called <b>PartyCH</b> indicated an improvement in network lifetime by <b>150%</b> and we presented our work at Delhi, in <b>GUCON 2018</b>.
-
-							<p><b><a href="https://github.com/vishnutdeepak/TheShield" target="_blank">The Shield</a></b>: I worked with <a href="https://www.linkedin.com/in/vishnu-t-deepak" target="_blank">Vishnu</a> to develop an <b>Android app</b> focusing on <b>safety</b> and <b>personal protection</b>, especially during night time. The app can be used to set repetitve <b>"I'm safe"</b> reminders at the time of caution. When the user does not mark herself safe within a threshold time period, the <b>emergency contact</b> is called. Morever, the feature to <b>sound an alarm</b> can be used to draw attention. The app also comes with <b>location services</b> to find a friend / police nearby. 
 						</div>
 					</div>
 				</div>
+				</center>
 			</section>
-
-
-		<!-- Three -->
-			<section id="six" class="main style1 special">
-				<div class="container">
-					<header class="major">
-						<h2>Featured Articles</h2>
-					</header>
-					<div class="row gtr-150">
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/hande.jpeg" alt="Siddharth Hande" /></span>
-							<h4>Uncovering smart cities with Siddharth Hande</h4>
-							<align="justify">
-							<p>When I interviewed Siddharth Hande, CEO of <a href="https://www.kabadiwallaconnect.in/" target="_blank">Kabadiwalla Connect</a> at Pragyan Youth Summit, 2018.</p>	
-							</align="justify">		
-							<ul class="actions special">
-								<li><a href="https://medium.com/pragyan-blog/uncovering-smart-cities-with-siddharth-hande-2f0748ffd603" target="_blank" class="button">Read</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/whatsapp.jpg" alt="WhatsApp for Business" /></span>
-							<h4>What makes WhatsApp a great solution for B2C communication</h4>
-							<align="justify">
-							<p>Why I believe companies will succeed in reaching their customers via  WhatsApp for Business.</p>	
-							</align="justify">		
-							<ul class="actions special">
-								<li><a href="https://sbabhinaya.medium.com/what-makes-whatsapp-a-great-solution-for-b2c-communication-190d02699444" target="_blank" class="button">Read</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/nitt.jpg" alt="NITT" /></span>
-							<h4>An Ode to NIT Trichy<br/>
-							— a poem</h4>
-							<align="justify">
-							<p>My heart-felt ode to my alma mater, National Institute of Technology, Tiruchirappalli.</p>	
-							</align="justify">		
-							<ul class="actions special">
-								<li><a href="https://medium.com/the-festember-blog/an-ode-to-nit-trichy-55dda5429590" target="_blank" class="button">Read</a></li>
-							</ul>
-						</div>
-
-					</div>
-				</div>
-			</section>
-
-		
 
 		<!-- Five -->
 		
@@ -283,12 +355,12 @@
 								<div class="col-4"><span class="image fit"><img src="images/amru.jpg" alt="Amruthavarshini, 2019" /></span></div>
 							</div>
 						</div>
-					</section> -->
+					</section> 
 
 				</div>
 			</section>-->
 		<!-- Four -->
-			<section id="seven" class="main style2 special">
+			<section id="seven" class="main style1 special">
 				<div class="container" >
 					<header class="major">
 						<h2>Looking for some fun?</h2>
@@ -305,17 +377,23 @@
 		
 		<!-- Footer -->
 			<section id="footer">
-				<ul class="actions special">
-					<li><a href="#" class="button wide primary scrolly">Go to top</a></li>
-				</ul>
+				<header class="major">
+					<h2>Let's connect!</h2>
+				</header>
 				<ul class="icons">
 					<li><a href="https://sbabhinaya.medium.com" target="_blank" class="icon brands alt fa-medium-m"><span class="label">Medium</span></a></li>
+					<li><a href="https://theqwordsmiths.wordpress.com/author/sbabhinaya/" target="_blank" class="icon brands alt fa-wordpress"><span class="label">WordPress</span></a></li>
 					<li><a href="https://linkedin.com/in/sbabhinaya" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
 					<li><a href="https://github.com/grangergirl" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="mailto:sbabhinaya@gmail.com" class="icon solid alt fa-envelope-square"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
 					<li>&copy; Abhinaya S.B.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+				<br>
+				<br>
+				<ul class="actions special">
+					<li><a href="#" class="button wide primary scrolly">Go to top</a></li>
 				</ul>
 			</section>
 
@@ -326,5 +404,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+			window.onscroll = function() {myScrollFunction()};
+			function myScrollFunction() {
+			  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			  var scrolled = (winScroll / height) * 100;
+			  document.getElementById("myScrollBar").style.width = scrolled + "%";
+			}
+			</script>
 	</body>
 </html>
