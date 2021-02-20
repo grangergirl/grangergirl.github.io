@@ -36,6 +36,23 @@
 		  background: #3535A1;
 		  width: 0%;
 		}
+		.container2 {
+		  position: relative;
+		  overflow: hidden;
+		  width: 100%;
+		  padding-top: 75%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+		}
+
+		/* Then style the iframe to fit in the container div with full height and width */
+		.responsive-iframe {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  width: 100%;
+		  height: 100%;
+		}
 		</style>
 
 	</head>
@@ -45,8 +62,8 @@
 			<section id="header">
 				<div class="inner">
 					<span class="icon solid major fa-door-open"></span>
-					<h1>Hi there, I'm <strong>Abhinaya</strong><br />
-					a techie, aspiring to solve impactful problems</h1>
+					<h1>Hi there, I'm <strong>Abhinaya,</strong><br>
+					a techie aspiring to solve impactful problems.</h1>
 					<p><b>Welcome to my homepage! Hope you find what you're looking for :)</b><br />
 					<ul class="actions special">
 						<li><a href="#one" class="button wide primary scrolly">Discover</a></li>
@@ -161,11 +178,17 @@
 								<h2>&nbsp;</h2>
 							</header>
 							<center>
-							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaDos09wGNaM73xzCIzIEZfB62IR4fP7KyZ7p2545P4NkCXcivfK_lA7vGpNmYf5EPYCSZ_ph0BonI/embed?start=false&loop=true&delayms=15000" frameborder="0" width="500" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							<div class="container2">
+								<iframe class="responsive-iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vTaDos09wGNaM73xzCIzIEZfB62IR4fP7KyZ7p2545P4NkCXcivfK_lA7vGpNmYf5EPYCSZ_ph0BonI/embed?start=false&loop=true&delayms=15000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							</div>
 							<h4>Chatbots for education - Slide deck</h4>
-							<iframe width="500" height="300" src="https://www.youtube.com/embed/J93wJaCgtmQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="container2">
+								<iframe class="responsive-iframe" src="https://www.youtube.com/embed/J93wJaCgtmQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
 							<h4>EkShiksha Chemistry - Presentation | <a href="resources/ekshiksha_report_asb.pdf" target="_blank">Report</a></h4>
-							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRmBd7pZVYG11HyfuJPQ4casu30PM6sU-c7ahOa7z1ggbCTmmD3w8cYPBiagy0KEg/embed?start=false&loop=true&delayms=15000" frameborder="0" width="500" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							<div class="container2">
+								<iframe class="responsive-iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vRmBd7pZVYG11HyfuJPQ4casu30PM6sU-c7ahOa7z1ggbCTmmD3w8cYPBiagy0KEg/embed?start=false&loop=true&delayms=15000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							</div>
 							<h4>PartyCH for WSNs - Slide deck</h4>
 							</center>
 						</div>
