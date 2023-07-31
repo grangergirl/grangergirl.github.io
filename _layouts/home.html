@@ -1,0 +1,52 @@
+---
+layout: archive
+---
+<style>
+  #news.scroll {
+    margin:4px, 4px;
+    padding:4px;
+    background-color: green;
+    width: 500px;
+    height: 110px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+</style>
+{{ content }}
+<div id="news">
+  <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Updates" }}</h3>
+  <b>Aug 2023</b>: I’m attending GREPSEC VI and USENIX Security!<br/>
+  <b>Jun 2023</b>: I’m serving on the USENIX Security '23 Artifact Evaluation committee<br/>
+  <b>Apr 2023</b>: I've been honored with the College of Engineering Graduate Enhancement Award at NC State<br/>
+  <b>Apr 2023</b>: I'm presenting a poster at the Graduate Student Symposium, NC State<br/>
+  <b>Mar 2023</b>: I'm attending WiCys 2023 at Denver, Colorado<br/>
+  <b>Jan 2023</b>: I'm the teaching assistant for CSC 433: Privacy in the Digital Age<br/>
+  <b>Aug 2022</b>: Started my Ph.D. at NC State!
+  <!-- {% if paginator %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %} -->
+  
+  <!-- {% assign entries_layout = page.entries_layout | default: 'list' %}
+  <div class="entries-{{ entries_layout }}">
+    {% for post in posts %}
+      {% include archive-single.html type=entries_layout %}
+    {% endfor %}
+  </div>
+  
+  {% include paginator.html %} -->
+</div>
+
+
+
+<!-- <script type="text/javascript">
+  window.onscroll = function() {myScrollFunction()};
+  function myScrollFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myScrollBar").style.width = scrolled + "%";
+  }
+  </script> -->
