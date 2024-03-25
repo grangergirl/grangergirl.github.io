@@ -12,10 +12,33 @@ layout: archive
     overflow-y: auto;
     text-align:justify;
 }
+.itemconfiguration
+{
+		height:400px;
+		width:100%;
+		/* background-color:#CCC; */		
+        overflow-y:auto;
+		float:left;
+		position:relative;
+		margin-left: 0;
+}
+.left_contentlist{
+width:100%;
+float:left;
+padding:0 0 0 -5px;
+position:relative;
+float:left;
+/* border-right: 1px #f8f7f3 solid; */
+/* background-image:url(images/bubble.png); */
+/* background-color: black; */
+}
 </style>
 {{ content }}
-<div id="news">
-  <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Updates" }}</h3>
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Updates" }}</h3>
+<div id="news" class="left_contentlist">
+  <div class="itemconfiguration">
+  <align="justify">
   <b>May 2024</b>: I'm attending the <a href="https://www.rsaconference.com/">RSA conference</a> as a <a href="https://www.rsaconference.com/rsac-programs/security-scholar">Security Scholar</a> in San Franscisco!<br/>
   <b>Mar 2024</b>: <b>New Paper Accepted:</b> Our work on "Understanding Parents’ Perceptions and Practices Toward Children’s Security and Privacy in Virtual Reality" has been accepted at <a href="https://sp2024.ieee-security.org/index.html">IEEE S&P 2024</a>(<a href="https://arxiv.org/pdf/2403.06172.pdf">preprint</a>)<br/>
   <b>Feb 2024</b>: <b>First Paper Accepted:</b> Our work on VR harassment and safety controls ("Enabling Developers, Protecting Users: Investigating Harassment and Safety in VR") has been accepted at <a href="https://www.usenix.org/conference/usenixsecurity24">USENIX Security 2024</a>(<a href="https://arxiv.org/abs/2403.05499">preprint</a>)<br/>
@@ -30,6 +53,7 @@ layout: archive
   <b>Mar 2023</b>: I'm attending WiCys 2023 at Denver, Colorado<br/>
   <b>Jan 2023</b>: I'm the teaching assistant for CSC 433: Privacy in the Digital Age<br/>
   <b>Aug 2022</b>: Started my Ph.D. at NC State!
+  </align>
   <!-- {% if paginator %}
     {% assign posts = paginator.posts %}
   {% else %}
@@ -44,6 +68,7 @@ layout: archive
   </div>
   
   {% include paginator.html %} -->
+</div>
 </div>
 
 
